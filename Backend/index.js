@@ -6,9 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-app.use(cors({
-  origin: "https://product-recommender-mdck52n03-akshradavids-projects.vercel.app"
-}));
+app.use(cors());
 app.use(express.json());
 
 // ✅ API route for OpenAI
@@ -41,4 +39,4 @@ app.post("/api/recommend", async (req, res) => {
   }
 });
 
-module.exports = app;
+app.listen(5000, () => console.log("✅ Server running on http://localhost:5000"));
